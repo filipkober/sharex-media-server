@@ -73,6 +73,9 @@ router.post("/", upload.single('form_image'), function (ctx) { return __awaiter(
             case 0:
                 if (((_a = ctx.cookies.get("Authorization")) === null || _a === void 0 ? void 0 : _a.split(" ")[1]) !== process.env.API_KEY)
                     return [2 /*return*/, ctx.throw(401, "Unauthorized")];
+                console.log(ctx.request);
+                console.log(ctx.request.file);
+                console.log(ctx.reqyest.files);
                 if (!ctx.request.file)
                     return [2 /*return*/, ctx.throw(400, "No file uploaded")];
                 _b.label = 1;
