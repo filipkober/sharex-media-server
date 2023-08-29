@@ -73,17 +73,12 @@ router.post("/", upload.single("file_image"), function (ctx) { return __awaiter(
             case 0:
                 if (((_a = ctx.cookies.get("Authorization")) === null || _a === void 0 ? void 0 : _a.split(" ")[1]) !== process.env.API_KEY)
                     return [2 /*return*/, ctx.throw(401, "Unauthorized")];
-                console.log(ctx.request);
-                console.log(ctx.request.file);
-                console.log(ctx.request.files);
-                console.log(ctx.files);
-                console.log(ctx.file);
                 if (!ctx.request.file)
                     return [2 /*return*/, ctx.throw(400, "No file uploaded")];
                 _b.label = 1;
             case 1:
                 _b.trys.push([1, 3, , 4]);
-                filename = ctx.request.file.filename;
+                filename = ctx.request.file.originalname;
                 return [4 /*yield*/, fs_1.default.promises.writeFile("".concat(process.env.MEDIA_PATH || "./media", "/").concat(filename), ctx.request.file.buffer)];
             case 2:
                 file = _b.sent();
@@ -92,7 +87,7 @@ router.post("/", upload.single("file_image"), function (ctx) { return __awaiter(
             case 3:
                 err_2 = _b.sent();
                 ctx.status = 500;
-                ctx.body = "Internal server error";
+                ctx.body = err_2;
                 return [3 /*break*/, 4];
             case 4: return [2 /*return*/];
         }
