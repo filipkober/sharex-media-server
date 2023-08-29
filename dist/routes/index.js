@@ -63,7 +63,7 @@ router.post("/", upload.single("file_image"), function (ctx) { return __awaiter(
                 return [4 /*yield*/, fs_1.default.promises.writeFile("".concat(process.env.MEDIA_PATH || "./media", "/").concat(newFileName), ctx.request.file.buffer)];
             case 2:
                 file = _b.sent();
-                ctx.redirect("/".concat(filename));
+                ctx.body = "".concat(process.env.URL || "http://localhost:7766", "/").concat(newFileName);
                 return [3 /*break*/, 4];
             case 3:
                 err_1 = _b.sent();

@@ -13,7 +13,7 @@ router.post("/",upload.single("file_image"), async (ctx) => {
         const filenameSplit = filename.split(".");
         const newFileName = `${filenameSplit[0]}_${Date.now()}.${filenameSplit[filenameSplit.length - 1]}`;
         const file = await fs.promises.writeFile(`${process.env.MEDIA_PATH || "./media"}/${newFileName}`, ctx.request.file.buffer);
-        ctx.redirect(`/${filename}`);
+        ctx.body = `${process.env.URL || "http://localhost:7766"}/${newFileName}`
     } catch(err) {
         ctx.status = 500;
         ctx.body = err;
