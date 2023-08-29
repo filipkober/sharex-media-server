@@ -3,10 +3,12 @@ import Router from '@koa/router';
 import multer from '@koa/multer';
 import fileRoutes from './routes';
 import 'dotenv/config'
+import serve from 'koa-static';
 
 const app = new koa();
 const router = new Router();
-const upload = multer();
+
+app.use(serve(process.env.MEDIA_PATH || './media'));
 
 router.get('/hello', (ctx) => {
     ctx.body = 'Hello World!';

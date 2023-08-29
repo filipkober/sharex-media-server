@@ -44,31 +44,8 @@ var router_1 = __importDefault(require("@koa/router"));
 var fs_1 = __importDefault(require("fs"));
 var router = new router_1.default();
 var upload = (0, multer_1.default)();
-router.get("/:filename", function (ctx) { return __awaiter(void 0, void 0, void 0, function () {
-    var filename, file, err_1;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                _a.trys.push([0, 2, , 3]);
-                filename = ctx.params.filename;
-                console.log(filename);
-                return [4 /*yield*/, fs_1.default.promises.readFile("".concat(process.env.MEDIA_PATH || "./media", "/").concat(filename))];
-            case 1:
-                file = _a.sent();
-                ctx.body = file;
-                return [3 /*break*/, 3];
-            case 2:
-                err_1 = _a.sent();
-                console.log(err_1);
-                ctx.status = 404;
-                ctx.body = "File not found";
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
-        }
-    });
-}); });
 router.post("/", upload.single("file_image"), function (ctx) { return __awaiter(void 0, void 0, void 0, function () {
-    var filename, filenameSplit, newFileName, file, err_2;
+    var filename, filenameSplit, newFileName, file, err_1;
     var _a;
     return __generator(this, function (_b) {
         switch (_b.label) {
@@ -89,9 +66,9 @@ router.post("/", upload.single("file_image"), function (ctx) { return __awaiter(
                 ctx.redirect("/".concat(filename));
                 return [3 /*break*/, 4];
             case 3:
-                err_2 = _b.sent();
+                err_1 = _b.sent();
                 ctx.status = 500;
-                ctx.body = err_2;
+                ctx.body = err_1;
                 return [3 /*break*/, 4];
             case 4: return [2 /*return*/];
         }
