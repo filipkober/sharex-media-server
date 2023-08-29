@@ -65,7 +65,7 @@ router.get("/:filename", function (ctx) { return __awaiter(void 0, void 0, void 
         }
     });
 }); });
-router.post("/", upload.single('form_image'), function (ctx) { return __awaiter(void 0, void 0, void 0, function () {
+router.post("/", function (ctx) { return __awaiter(void 0, void 0, void 0, function () {
     var filename, file, err_2;
     var _a;
     return __generator(this, function (_b) {
