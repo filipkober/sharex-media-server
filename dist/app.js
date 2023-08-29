@@ -14,6 +14,6 @@ var upload = (0, multer_1.default)();
 router.get('/hello', function (ctx) {
     ctx.body = 'Hello World!';
 });
-router.use('/', routes_1.default.routes(), routes_1.default.allowedMethods());
+router.use(routes_1.default.routes(), routes_1.default.allowedMethods());
 app.use(router.routes()).use(router.allowedMethods());
 app.listen(process.env.PORT || 3000, function () { return console.log("Server started on port ".concat(process.env.PORT || 3000)); });

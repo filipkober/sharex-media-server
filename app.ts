@@ -12,7 +12,7 @@ router.get('/hello', (ctx) => {
     ctx.body = 'Hello World!';
 })
 
-router.use('/', fileRoutes.routes(), fileRoutes.allowedMethods());
+router.use(fileRoutes.routes(), fileRoutes.allowedMethods());
 
 app.use(router.routes()).use(router.allowedMethods());
 
