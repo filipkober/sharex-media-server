@@ -19,7 +19,9 @@ router.post("/", async (ctx) => {
     if(ctx.cookies.get("Authorization")?.split(" ")[1] !== process.env.API_KEY) return ctx.throw(401, "Unauthorized");
     console.log(ctx.request)
     console.log(ctx.request.file)
-    console.log(ctx.reqyest.files)
+    console.log(ctx.request.files)
+    console.log(ctx.files)
+    console.log(ctx.file)
     if(!ctx.request.file) return ctx.throw(400, "No file uploaded");
     try {
         const filename = ctx.request.file.filename;

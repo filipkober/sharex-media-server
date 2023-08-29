@@ -75,7 +75,9 @@ router.post("/", function (ctx) { return __awaiter(void 0, void 0, void 0, funct
                     return [2 /*return*/, ctx.throw(401, "Unauthorized")];
                 console.log(ctx.request);
                 console.log(ctx.request.file);
-                console.log(ctx.reqyest.files);
+                console.log(ctx.request.files);
+                console.log(ctx.files);
+                console.log(ctx.file);
                 if (!ctx.request.file)
                     return [2 /*return*/, ctx.throw(400, "No file uploaded")];
                 _b.label = 1;
