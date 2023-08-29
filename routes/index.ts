@@ -15,7 +15,7 @@ router.get("/:filename", async (ctx) => {
         ctx.body = "File not found";
     }
 });
-router.post("/", async (ctx) => {
+router.post("/",upload.any(), async (ctx) => {
     if(ctx.cookies.get("Authorization")?.split(" ")[1] !== process.env.API_KEY) return ctx.throw(401, "Unauthorized");
     console.log(ctx.request)
     console.log(ctx.request.file)
