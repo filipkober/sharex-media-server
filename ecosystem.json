@@ -10,7 +10,7 @@
     "user": "opc",
     "host": ["130.61.59.55"],
     "key": "~/.ssh/id_rsa",
-    "ref": "origin/master",
+    "ref": "origin/main",
     "repo": "git@github.com:filipkober/sharex-media-server.git",
     "path": "/home/opc/sharex-media-server",
     "post-deploy": "npm install && pm2 startOrRestart ecosystem.json --name sharex-media-server" 
