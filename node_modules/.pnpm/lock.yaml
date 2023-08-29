@@ -11,6 +11,9 @@ dependencies:
   '@koa/router':
     specifier: ^12.0.0
     version: 12.0.0
+  dotenv:
+    specifier: ^16.3.1
+    version: 16.3.1
   koa:
     specifier: ^2.14.2
     version: 2.14.2
@@ -607,6 +610,11 @@ packages:
     dependencies:
       readable-stream: 1.1.14
       streamsearch: 0.1.2
+    dev: false
+
+  /dotenv@16.3.1:
+    resolution: {integrity: sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==}
+    engines: {node: '>=12'}
     dev: false
 
   /ee-first@1.1.1:

@@ -7,6 +7,7 @@ var koa_1 = __importDefault(require("koa"));
 var router_1 = __importDefault(require("@koa/router"));
 var multer_1 = __importDefault(require("@koa/multer"));
 var routes_1 = __importDefault(require("./routes"));
+require("dotenv/config");
 var app = new koa_1.default();
 var router = new router_1.default();
 var upload = (0, multer_1.default)();
