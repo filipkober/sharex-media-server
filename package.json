@@ -1,0 +1,25 @@
+{
+  "name": "sharex-server",
+  "version": "1.0.0",
+  "description": "media server for sharex",
+  "main": "dist/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "node dist/app.js"
+  },
+  "author": "filip kober",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/koa": "^2.13.8",
+    "@types/koa__multer": "^2.0.4",
+    "@types/koa__router": "^12.0.0",
+    "@types/node": "^20.5.7",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@koa/multer": "^3.0.2",
+    "@koa/router": "^12.0.0",
+    "koa": "^2.14.2"
+  }
+}
