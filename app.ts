@@ -10,6 +10,10 @@ const upload = multer();
 
 router.use('/', fileRoutes.routes(), fileRoutes.allowedMethods());
 
+router.get('/hello', (ctx) => {
+    ctx.body = 'Hello World!';
+})
+
 app.use(router.routes()).use(router.allowedMethods());
 
 app.listen(
