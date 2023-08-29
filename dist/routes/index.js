@@ -51,6 +51,7 @@ router.get("/:filename", function (ctx) { return __awaiter(void 0, void 0, void 
             case 0:
                 _a.trys.push([0, 2, , 3]);
                 filename = ctx.params.filename;
+                console.log(filename);
                 return [4 /*yield*/, fs_1.default.promises.readFile("".concat(process.env.MEDIA_PATH || "./media", "/").concat(filename))];
             case 1:
                 file = _a.sent();
@@ -58,6 +59,7 @@ router.get("/:filename", function (ctx) { return __awaiter(void 0, void 0, void 
                 return [3 /*break*/, 3];
             case 2:
                 err_1 = _a.sent();
+                console.log(err_1);
                 ctx.status = 404;
                 ctx.body = "File not found";
                 return [3 /*break*/, 3];
@@ -66,7 +68,7 @@ router.get("/:filename", function (ctx) { return __awaiter(void 0, void 0, void 
     });
 }); });
 router.post("/", upload.single("file_image"), function (ctx) { return __awaiter(void 0, void 0, void 0, function () {
-    var filename, file, err_2;
+    var filename, filenameSplit, newFileName, file, err_2;
     var _a;
     return __generator(this, function (_b) {
         switch (_b.label) {
@@ -79,7 +81,9 @@ router.post("/", upload.single("file_image"), function (ctx) { return __awaiter(
             case 1:
                 _b.trys.push([1, 3, , 4]);
                 filename = ctx.request.file.originalname;
-                return [4 /*yield*/, fs_1.default.promises.writeFile("".concat(process.env.MEDIA_PATH || "./media", "/").concat(filename), ctx.request.file.buffer)];
+                filenameSplit = filename.split(".");
+                newFileName = "".concat(filenameSplit[0], "_").concat(Date.now(), ".").concat(filenameSplit[filenameSplit.length - 1]);
+                return [4 /*yield*/, fs_1.default.promises.writeFile("".concat(process.env.MEDIA_PATH || "./media", "/").concat(newFileName), ctx.request.file.buffer)];
             case 2:
                 file = _b.sent();
                 ctx.redirect("/".concat(filename));
